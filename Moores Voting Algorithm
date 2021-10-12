@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+ int majorityElement(int a[], int size)
+    {
+        
+        // your code here
+        int count=1;
+        int me=a[0];
+        for(int i=1;i<size;i++)
+        {
+            if(a[i]==me)
+            count++;
+            else
+            count--;
+            if(count==0){
+            me=a[i];
+            count++;
+            }
+        }
+        int x=0;
+        for(int i=0;i<size;i++)
+        {
+            if(a[i]==me)
+            x++;
+        }
+        if(x>size/2)
+        return me;
+        else 
+        return -1;
+    }
+
+int main()
+{
+    int a[] = { 3, 3, 4, 2, 4, 4, 2, 4, 4 };
+    int size = sizeof(a) / sizeof(a[0]);
+    int majority = majorityElement(a, size);
+    cout << " The majority element is : " << majorityElement;
+    return 0;
+}
